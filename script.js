@@ -90,6 +90,15 @@ createApp({
         };
     },
     methods: {
+      setActiveContact(index) {
+        this.contacts.forEach(contact => {
+            contact.active = false;
+        });
+
+        this.contacts[index].active = true;
+        console.log("done");
+      },
+      
     },
     computed: {
       activeContacts() {
