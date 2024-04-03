@@ -52,6 +52,7 @@ section{
     padding: 10px;
     background-color: #eeeeee;
     border-top-left-radius: 10px;
+    height: 70px;
 }
 
 .space-between{
@@ -137,4 +138,76 @@ section{
     position: absolute;
     right: 30px;
     top: 10px;
+}
+
+/* Chat messages and header*/
+
+#viewChat{
+    width: 60%;
+    height: 100%;
+}
+
+#viewChat .section-header{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 0;
+}
+
+.clicked-chat{
+    background-color: #eaeaea;
+}
+
+.chat-container{
+    height: calc(100% - 140px);
+    overflow: auto;
+    padding: 70px;
+    background-image: url(./img/mine.jpg);
+    display: flex;
+    flex-direction: column;
+}
+
+.section-send{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #eeeeee;
+    border-bottom-right-radius: 10px;
+    height: 70px;
+}
+
+.section-send i:nth-child(1){
+    margin-right: 40px;
+    margin-left: 20px;
+}
+
+.section-send i:nth-child(3){
+    margin-left: 40px;
+    margin-right: 20px;
+}
+
+.sent-message{
+    background-color: #D5F9BA;
+    width: 45%;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 10px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.received-message{
+    background-color: white;
+    width: 45%;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-date{
+    margin-left: auto;
+    margin-top: 3px;
+    font-size: 11px;
+    color: rgb(145, 145, 145);
 }

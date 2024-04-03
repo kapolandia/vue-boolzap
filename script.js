@@ -7,6 +7,7 @@ createApp({
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
+                active: true,
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Hai portato a spasso il cane?',
@@ -27,6 +28,7 @@ createApp({
               {
                 name: 'Fabio',
                 avatar: '_2',
+                active: false,
                 visible: true,
                 messages: [{
                     date: '20/03/2020 16:30:00',
@@ -49,6 +51,7 @@ createApp({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
+                active: false,
                 messages: [{
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
@@ -70,6 +73,7 @@ createApp({
                 name: 'Luisa',
                 avatar: '_4',
                 visible: true,
+                active: false,
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -86,5 +90,10 @@ createApp({
         };
     },
     methods: {
+    },
+    computed: {
+      activeContacts() {
+          return this.contacts.filter(contact => contact.active);
+      }
     }
 }).mount('#app');

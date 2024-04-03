@@ -38,8 +38,8 @@
                     <span class="input-group-text bg-white" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="searchUser">
                 </div>
-                <div v-for="contact, index in contacts" class="wrapper p-3 chat-div">
-                    <img :src="`./img/avatar_${index + 1}.jpg`" alt="">
+                <div v-for="contact, index in contacts" class="wrapper p-3 chat-div" :class="{ 'clicked-chat' : contact.active}">
+                    <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
                     <div>
                         <p class="contact-name"> {{ contact.name}} </p>
                         <p class="last-message">Ultimo messagio inviato</p>
@@ -50,7 +50,36 @@
 
             <!-- CHAT MESSAGES -->
             <section id="viewChat">
+                <div class="section-header space-between">
+                    <div v-for="activeContact in activeContacts" :key="activeContact.name" class="wrapper">
+                        <img :src="'./img/avatar' + activeContact.avatar + '.jpg'" alt="">
+                        <div>
+                            <p class="contact-name">{{ activeContact.name }}</p>
+                            <p class="last-message">Ultimo accesso oggi alle 12:00</p>
+                        </div>
+                    </div>
 
+                    <div class="wrapper">
+                        <i class="fa-solid fa-magnifying-glass icon-secondary"></i>
+                        <i class="fa-solid fa-paperclip icon-secondary"></i>
+                        <i class="fa-solid fa-ellipsis-vertical icon-secondary"></i>
+                    </div>
+                </div>
+
+                <div class="chat-container">
+                    <div v-for="activeContact in activeContacts">
+                        <div v-for="message in activeContact.messages" :key="message.date" :class="{ 'sent-message': message.status === 'sent', 'received-message': message.status === 'received' }">
+                            <p> {{ message.message }}</p>
+                            <p class="message-date"> {{message.date}}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-send">
+                    <i class="fa-solid fa-face fa-laugh-squint icon-secondary"></i>
+                    <input type="text" class="form-control" placeholder="Scrivi un messagio" v-model="sendMessage">
+                    <i class="fa-solid fa-microphone icon-secondary"></i>
+                </div>
             </section>
         </main>
     </div>
