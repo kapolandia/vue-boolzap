@@ -5,14 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>Boolzap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
     <div id="app">
+        <main>
+            <!-- CHAT LIST -->
+            <section id="chatList">
+                <div class="section-header space-between">
+                    <div class="wrapper">
+                        <img src="./img/avatar_io.jpg" alt="">
+                        <p class="contact-name">Sofia</p>
+                    </div>
+                    <div class="wrapper">
+                        <i class="fa-solid fa-circle-notch icon-secondary"></i>
+                        <i class="fa-solid fa-message icon-secondary"></i>
+                        <i class="fa-solid fa-ellipsis-vertical icon-secondary"></i>
+                    </div>
+                </div>
+                <div class="notification-alert">
+                    <div class="circle-icon">
+                        <i class="fa-solid fa-bell-slash blue-icon"></i>
+                    </div>
+                    <div>
+                        <p class="contact-name">Ricevi le notifiche dei nuovi messaggi</p>
+                        <p class="notification-sub">Attiva notifiche desktop</p>
+                    </div>
+                </div>
+                <div class="input-group p-2">
+                    <span class="input-group-text bg-white" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="searchUser">
+                </div>
+                <div v-for="contact, index in contacts" class="wrapper p-3 chat-div">
+                    <img :src="`./img/avatar_${index + 1}.jpg`" alt="">
+                    <div>
+                        <p class="contact-name"> {{ contact.name}} </p>
+                        <p class="last-message">Ultimo messagio inviato</p>
+                    </div>
+                    <div  class="time last-message">12:00</div>
+                </div>
+            </section>
 
+            <!-- CHAT MESSAGES -->
+            <section id="viewChat">
+
+            </section>
+        </main>
     </div>
     
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./script.js"></script>
 </body>
