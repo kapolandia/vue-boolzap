@@ -211,3 +211,7 @@ section{
     font-size: 11px;
     color: rgb(145, 145, 145);
 }
+
+.d-none{
+    display: none;
+}

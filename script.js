@@ -122,6 +122,25 @@ createApp({
           status: 'received'
         });
       },
+
+      isInSearch(name){
+        let nameLower = name.toLowerCase();
+        let searchLower = this.searchUser.toLowerCase();
+        console.log(searchLower);
+
+        if(searchLower.length < 1){
+          return false;
+        }
+
+        for (let i = 0; i < searchLower.length; i++) {
+          if (!nameLower.includes(searchLower[i])) {
+              return true;
+          }
+        }
+
+        return false;
+  
+      }
       
     },
     computed: {

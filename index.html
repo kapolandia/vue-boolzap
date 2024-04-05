@@ -38,13 +38,13 @@
                     <span class="input-group-text bg-white" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" v-model="searchUser">
                 </div>
-                <div v-for="contact, index in contacts" class="wrapper p-3 chat-div" :class="{ 'clicked-chat' : contact.active}" @click="setActiveContact(index)">
-                    <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
-                    <div>
-                        <p class="contact-name"> {{ contact.name}} </p>
-                        <p class="last-message">Ultimo messagio inviato</p>
-                    </div>
-                    <div  class="time last-message">12:00</div>
+                <div v-for="contact, index in contacts" class="wrapper p-3 chat-div" :class="{ 'clicked-chat' : contact.active, 'd-none': isInSearch(contact.name)}" @click="setActiveContact(index)">
+                        <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
+                        <div>
+                            <p class="contact-name"> {{ contact.name}} </p>
+                            <p class="last-message">Ultimo messagio inviato</p>
+                        </div>
+                        <div  class="time last-message">12:00</div>
                 </div>
             </section>
 
