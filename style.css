@@ -193,6 +193,7 @@ section{
     margin-left: auto;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .received-message{
@@ -214,4 +215,10 @@ section{
 
 .d-none{
     display: none;
+}
+
+.my-icon-dd{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
 }

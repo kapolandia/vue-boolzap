@@ -68,9 +68,14 @@
 
                 <div class="chat-container">
                     <div v-for="activeContact in activeContacts">
-                        <div v-for="message in activeContact.messages" :key="message.date" :class="{ 'sent-message': message.status === 'sent', 'received-message': message.status === 'received' }">
+                        <div v-for="message, index in activeContact.messages" :key="message.date" :class="{ 'sent-message': message.status === 'sent', 'received-message': message.status === 'received' }" style="position: relative;">
                             <p> {{ message.message }}</p>
                             <p class="message-date"> {{message.date}}</p>
+                            <i class="fa-solid fa-angle-down my-icon-dd" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="initializeDropdown($event)"></i>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Info messaggio</a>
+                                <a class="dropdown-item" href="#" @click="eliminateMessage(index)">Elimina messaggio</a>
+                              </div>
                         </div>
                     </div>
                 </div>

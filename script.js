@@ -140,7 +140,25 @@ createApp({
 
         return false;
   
-      }
+      },
+
+      eliminateMessage(index){
+        let activeContact = this.contacts.find(contact => contact.active);
+        activeContact.messages.splice(index, 1);
+      },
+
+      initializeDropdown(event) {
+        let icon = event.target;
+        console.log(icon);
+        let dropdownContainer = icon.nextElementSibling;
+        console.log(dropdownContainer);
+    
+        if (dropdownContainer.classList.contains('show')) {
+            dropdownContainer.classList.remove('show');
+        } else {
+            dropdownContainer.classList.toggle('show');
+        }
+    }
       
     },
     computed: {
@@ -148,5 +166,5 @@ createApp({
         console.log(this.contacts.filter(contact => contact.active));
           return this.contacts.filter(contact => contact.active);
       }
-    }
+    },
 }).mount('#app');
