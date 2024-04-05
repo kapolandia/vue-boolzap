@@ -42,9 +42,9 @@
                         <img :src="`./img/avatar${contact.avatar}.jpg`" alt="">
                         <div>
                             <p class="contact-name"> {{ contact.name}} </p>
-                            <p class="last-message">Ultimo messagio inviato</p>
+                            <p class="last-message">Ultimo messagio inviato alle {{contact.lastSeen}}</p>
                         </div>
-                        <div  class="time last-message">12:00</div>
+                        <div  class="time last-message">{{contact.lastSeen}}</div>
                 </div>
             </section>
 
@@ -55,7 +55,7 @@
                         <img :src="'./img/avatar' + activeContact.avatar + '.jpg'" alt="">
                         <div>
                             <p class="contact-name">{{ activeContact.name }}</p>
-                            <p class="last-message">Ultimo accesso oggi alle 12:00</p>
+                            <p class="last-message">Ultimo accesso oggi alle {{activeContact.lastSeen}}</p>
                         </div>
                     </div>
 

@@ -10,6 +10,7 @@ createApp({
                 avatar: '_1',
                 visible: true,
                 active: true,
+                lastSeen: "16:15",
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Hai portato a spasso il cane?',
@@ -32,6 +33,7 @@ createApp({
                 avatar: '_2',
                 active: false,
                 visible: true,
+                lastSeen: "16:35",
                 messages: [{
                     date: '20/03/2020 16:30:00',
                     message: 'Ciao come stai?',
@@ -54,6 +56,7 @@ createApp({
                 avatar: '_3',
                 visible: true,
                 active: false,
+                lastSeen: "16:15",
                 messages: [{
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
@@ -76,6 +79,7 @@ createApp({
                 avatar: '_4',
                 visible: true,
                 active: false,
+                lastSeen: "15:50",
                 messages: [{
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
@@ -121,6 +125,8 @@ createApp({
           message: "dai",
           status: 'received'
         });
+        activeContact[0].lastSeen = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        console.log(new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
       },
 
       isInSearch(name){
