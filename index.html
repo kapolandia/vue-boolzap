@@ -77,7 +77,7 @@
                 
                 <div class="section-send">
                     <i class="fa-solid fa-face fa-laugh-squint icon-secondary"></i>
-                    <input type="text" class="form-control" placeholder="Scrivi un messagio" v-model="sendMessage">
+                    <input type="text" class="form-control" placeholder="Scrivi un messagio" v-model="sendMessage" @keyup.enter="sendMessageObj()">
                     <i class="fa-solid fa-microphone icon-secondary"></i>
                 </div>
             </section>

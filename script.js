@@ -3,6 +3,8 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+          sendMessage: '',
+          searchUser: '',
             contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -98,10 +100,33 @@ createApp({
         this.contacts[index].active = true;
         console.log("done");
       },
+
+      sendMessageObj(){
+        let textMessage = this.sendMessage;
+        let activeContact = this.contacts.filter(contact => contact.active);
+        console.log(textMessage);
+        activeContact[0]['messages'].push({
+          date: new Date().toLocaleString(), 
+          message: textMessage,
+          status: 'sent'
+        });
+        this.sendMessage = "";
+        setTimeout(this.receiveMessage, 1000);
+      },
+
+      receiveMessage(){
+        let activeContact = this.contacts.filter(contact => contact.active);
+        activeContact[0]['messages'].push({
+          date: new Date().toLocaleString(), 
+          message: "dai",
+          status: 'received'
+        });
+      },
       
     },
     computed: {
       activeContacts() {
+        console.log(this.contacts.filter(contact => contact.active));
           return this.contacts.filter(contact => contact.active);
       }
     }
